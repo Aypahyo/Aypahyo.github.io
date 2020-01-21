@@ -1,0 +1,45 @@
+Noting your intentions in testform is an excellent idea. <!-- -->To do that you want to have a testframework like <!-- --><a title="Download googletest" href="https://code.google.com/p/googletest/downloads/list" target="_blank">googletest</a><!-- -->.
+
+After getting a testframework you want to set it up so that it runs every time you press on compile. <!-- -->In fact you most likely do not want to run the program at all but just run your tests. <!-- -->As long as you do not break a test your code is still what you intended it to be. <!-- -->If you find a bug, just add a test. <!-- -->If you want to add a feature add a test for it first.
+
+Most buildcontrol tools can be set up so that one click compilation and test will work. <!-- -->Here is one way to do it with MSBuild.
+
+Create a new empty C++ project without any fancy stuff like precompiled headers etc. <!-- -->In that project you want two new files. <!-- -->One s<code>omething_main.cpp</code> and one <code>something_test.cpp</code>. <!-- -->Specifically the endings are important. <!-- -->The endings will be used to filter your files later. <!-- -->For example we avoid a conflict between two main functions. <!-- -->One from the testframework, one from your application. <!-- -->Another useful thing is to filter other test from unittests. <!-- -->That way you could have a seperate build for your time consuming tests.
+
+You can not copy paste the following files easily, some manual work is required. <!-- -->Here is the content of the files:
+
+<code>something_test.cpp</code>
+<pre class="brush: cpp">#include "../Utility/GTest/gtest.h"
+TEST(casename, testname){ EXPECT_EQ(1,1); }</pre>
+<code>something_main.cpp</code>
+<pre class="brush: cpp">void main(void){}</pre>
+<a title="Demofile" href="http://blog.aypahyo.net/files/MSBuild_GTest_XML.vcxproj" target="_blank">something.vcxproj</a>
+
+Most of <a title="Demofile" href="http://blog.aypahyo.net/files/MSBuild_GTest_XML.vcxproj" target="_blank">the build file</a> is automatically generated with just a small portion of manual editing. <!-- -->After you created a new project the vcxproj file already exists. <!-- -->At some point you want to copy the testframework into your project, or at least that is what i do. <!-- -->The place where you want it to be already influences some lines in the other files. <!-- -->You need the path for all include statements. <!-- -->The include statement of <code>something_test.cpp</code> and <!-- -->the include statement of the build xml (line 153). <!-- -->Your overall foldersetup will look something like the folders in the next picture. <!-- -->Note how few files the googletest framework will use. <!-- -->Also I screwed up the naming - but do not worry about that.
+
+<img alt="" src="http://blog.aypahyo.net/pictures/MSBuild_GTest_Folders.png" />
+
+The xml build contains references to a test build configuration. <!-- -->To get it you would have to edit the xml file and the solution file. <!-- -->I suggest taking the shortcut via Visual Studio. <!-- -->Use the <!-- --><a title="how to use the assistant" href="http://msdn.microsoft.com/en-us/library/kwybya3w.aspx" target="_blank"> <!-- -->assistant to create a new build configuration</a>. <!-- -->Copy the Properties for it from the Debug configuration. <!-- -->And Name it "Test" - that is the name used in the build xml above. <!-- -->If you can not access the assistant you most likely have the express edition installed. <!-- -->In that case you have to <!-- --><a title="greyed out configuration manager" href="http://www.gregcons.com/KateBlog/HowDoIMakeADebugBuild.aspx" target="_blank">configure Visual Studio</a> <!-- -->first.
+
+Posting the xml build file does not look good and takes up a lot of space. <!-- -->However talking about it without the file is kind of pointless. <!-- -->So please go ahead and <a title="Demofile" href="http://blog.aypahyo.net/files/MSBuild_GTest_XML.vcxproj" target="_blank">download the file</a>. <!-- -->I suggest opening it with <a title="notepad++ project home" href="http://notepad-plus-plus.org/" target="_blank">notepad++</a> and switching the language to xml. <!-- -->Reading from top to bottom through the build xml:
+<ul>
+	<li><strong>line 80</strong> Here are the precompiler definitions for the Test|Win32 build. <!-- -->The _Debug definition was removed since it can interfere with the testframework. <!-- -->An empty property $(INJECT_HERE) was inserted. <!-- -->This allows us to inject preprocessor definitions later.</li>
+	<li><strong>lines 104 to 113</strong> Leave this part alone. <!-- -->Visual Studio will automanage this part. <!-- -->It basically lists all your project files that are to be compiled.</li>
+	<li><strong>line 115 to 117</strong> Another inject mechanism. <!-- -->This one creates a key. <!-- -->If we start in test configuration the key contains a long string. <!-- -->If we start in non test configuration the key contains an empty string. <!-- -->Looking at this key later will tell us if we started in test configuration.</li>
+	<li><strong>line 122</strong> The default build target gets re-specified here. <!-- -->This overrides the old buildtarget. <!-- -->The old buildtarget was set during one of the import statements. <!-- -->If you want to take a look at them you can output their path using the message task. <!-- -->They are also xml files following the msbuild schema.</li>
+	<li><strong>line 123</strong> Deleting the gtest obj files ensures a rebuild of them (unless nothing at all was edited) <!-- -->That way precompiler definitions are reapplied.</li>
+	<li><strong>line 124</strong> in any case and for all builds, the target TestBuild is executed. <!-- -->Testbuild is specified below. <!-- -->It basically builds the unittests. <!-- -->Since testbuild is the only target in Test configuration this will return the testexecuteable to Visual Studio. <!-- -->Visual Studio will then execute the returned executeable if you started the build as build and run.</li>
+	<li><strong>line 125 and 126</strong> These two lines are conditional and are executed when not executing test. <!-- -->RunTest runs the tests and outputs to the buildlog. <!-- -->If the tests fail the returnvalue of the executed gtest file tells msbuild to abort the build. <!-- -->There will be a builderror in Visual Studio allowing you to see what went wrong.</li>
+	<li><strong>line 136</strong> this is my favorite line in the whole file. <!-- -->There is an inject to inject a keyword into the preprocessor (see line 80) <!-- -->But only if it is run in testmode the injected string is not empty. (see line 116) <!-- -->This allows your testframework wheather it was started with the testconfiguration or not. <!-- -->Provided of course your testframework gets recompiled at every run. (see line 123)</li>
+	<li><strong>line 139 to 144</strong> this is a copy of the original build from one of the imported files. <!-- -->the new build did overwrite it - but since it is still needet here is a copy of it. <!-- -->The only change is the new dependencie ModifyFiles.</li>
+	<li><strong>line 146</strong> Just a simple exec task to run the tests.</li>
+	<li><strong>lines 150 to 157</strong>This target filters the files before the normal build is executed. <!-- -->For the testbuild the main file has to be removed since the testframework has its own main function. <!-- -->Also we want to remove all testcode from the normal release and debug builds <!-- -->This is the place to filter if you want a _fake implementation for every class or _integration for non unittests.</li>
+</ul>
+When I am testing I like my console to remain open so I can enjoy the view. <!-- -->Hitting CTRL + F5 works here, but usually I am too lazy to hit that correctly. <!-- -->After jumping through a lot of hoops to get the precompilerdefinition through, <!-- -->we are free to add a conditional pause to the googletest main function. <!-- -->Something along these lines:
+<pre class="brush: cpp">#ifdef MSBUILD_RUN_WITH_STOP_AT_END
+std::cout&lt;&lt;"....\n"; 
+_getch();
+#endif</pre>
+You should be able to copy these results and have your own googletest build party. <!-- -->When you do, please pay attention to the colors of googletest when executing the test build. <!-- -->The regular wondows console is not an ansi console <!-- -->and I do not have colors there using ansi escape sequences. <!-- -->However if you run the tests within the Visual Studio console there are colors. <!-- -->That makes me wonder if Visual Studio ships with its own ansi console. If you have information about that feel free to comment.
+
+There are some things, like incremental build or creating config files on the fly, that I was unable to explain in this context. I will continue in the next few days with CppCheck and/or PClint to fill that gap.
