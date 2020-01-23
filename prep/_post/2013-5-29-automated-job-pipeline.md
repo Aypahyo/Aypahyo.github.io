@@ -1,3 +1,8 @@
+---
+layout: post
+title: tic tac toe job pipeline
+---
+
 Ultimately automation should trigger on changes in the code repository.
 To that end I need a GitHub Webhook to trigger the pipeline.
 
@@ -14,13 +19,13 @@ Since I want to pull my gcc compiler from hub.docker.com I ran into an Issue whe
 
 Image Override reveals the option to upgrade the pipeline.
 I needed:
-<ul>
-	<li>aws/codebuild/standard 2.0</li>
-	<li>Check Priviledged</li>
-</ul>
+
+- aws/codebuild/standard 2.0
+- Check Priviledged
+
 Checking both these options made my pipeline run and complete successfully.
 
-<code>
+```language
 version: 0.2
 phases:
 install:
@@ -35,7 +40,7 @@ commands:
 artifacts:
 files:
 - ./main
-</code>
+```
 
 The output artifacs ended up in an S3 bucket
 
