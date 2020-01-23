@@ -26,11 +26,7 @@ I may come back to this problem after I finished TicTacToe.
 Jagged arrays work just as fine, so I don't want to divert from my goal too much.
 Post your suggestions in the comments or answer on stackoverflow (easy points for the taking).
 
-You can play the
-[Human vs. Human version 000](http://blog.aypahyo.net/tictactoe/TicTacToeGUIv000.exe)
-, it looks like this:
-
-![gui](http://blog.aypahyo.net/tictactoe/TicTacToe_GUI_V000.png)
+![gui](/images/2013-4-27/TicTacToe_GUI_V000.png)
 
 The view itself consists of 9 buttons and a status text.
 Each button has a viewbox with a TextBlock inside instead of its regular content.

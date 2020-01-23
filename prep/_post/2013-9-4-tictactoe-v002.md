@@ -13,7 +13,7 @@ We started with a single God Object, no testing and no style control. Adding tho
 
 ## Where are we now
 
-![model of the tictactoe programming project](http://blog.aypahyo.net/tictactoe/TicTacToeV002.png)
+![model of the tictactoe programming project](/images/2013-9-4/TicTacToeV002.png)
 
 The current state is V002. It features some refactorings towards our next feature but nothing major. It consists of three Projects, each serving a specific role. The GUI project contains all GUI relevant coding including the adaption to the game. The game project contains all game logic that can be seperated from the GUI. Last but most improtant is the testing project, featuring all tests that verify the game is working as intended. In its current version it acts on the gui just like the user would and controls the result.
 

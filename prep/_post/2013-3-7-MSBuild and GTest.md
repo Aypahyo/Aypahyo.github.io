@@ -43,8 +43,6 @@ TEST(casename, testname){ EXPECT_EQ(1,1); }
 void main(void){}
 ```
 
-[something.vcxproj](http://blog.aypahyo.net/files/MSBuild_GTest_XML.vcxproj)
-
 Most of `something.vcxproj`, the build file, is automatically generated with just a small portion of manual editing.
 After you created a new project the vcxproj file already exists.
 At some point you want to copy the testframework into your project, or at least that is what i do.
@@ -56,7 +54,7 @@ Your overall foldersetup will look something like the folders in the next pictur
 Note how few files the googletest framework will use.
 Also I screwed up the naming - but do not worry about that.
 
-![alt](http://blog.aypahyo.net/pictures/MSBuild_GTest_Folders.png)
+![alt](/images/2013-3-7/MSBuild_GTest_Folders.png)
 
 The xml build contains references to a test build configuration.
 To get it you would have to edit the xml file and the solution file.
@@ -76,7 +74,7 @@ first.
 
 Posting the xml build file does not look good and takes up a lot of space.
 However talking about it without the file is kind of pointless.
-So please go ahead and [Demofile](http://blog.aypahyo.net/files/MSBuild_GTest_XML.vcxproj).
+*I had to remove the file from here when I moved the blog*
 I suggest opening it with [notepad++ project home](http://notepad-plus-plus.org/) and switching the language to xml.
 Reading from top to bottom through the build xml:
 

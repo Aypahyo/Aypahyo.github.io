@@ -67,4 +67,4 @@ namespace TicTacToeTest
 
 This calls the NUnit GUI runner with the appropriate location of your test assembly. This is written universal so you can actually use it for all your test projects. The reason why you want to do this is because you use the *Express* version of *Visual Studio*. This version does not allow you to attach the debugger to a running assembly. So what you have to do is to start the assembly using the debugger - that way you can actually debug your test should anything go wrong. The downside is that you will get notified if an exception is thrown - even if that was intentional.
 
-I do not include a playable link to the executeable. I think if you read it this far you may want to look at the sourcefiles instead. So here is the project instead. [Human vs. Human version 001](http://blog.aypahyo.net/tictactoe/TicTacToeV001.zip)
+I do not include a playable link to the executeable. I think if you read it this far you may want to look at the sourcefiles instead. So here is the project instead.

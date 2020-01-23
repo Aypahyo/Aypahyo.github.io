@@ -25,7 +25,7 @@ This code can be saved in any file and msbuild.exe will take the filename as a p
 The following output was created on my machine
 (german, because the world hates me and defaults to installing everything in german for me):
 
-![console out]("http://blog.aypahyo.net/pictures/MSBuild_HelloWorld_Output.png")
+![console out]("/images/2013-3-4/MSBuild_HelloWorld_Output.png")
 
 Microsoft maintains a [MSBuild.exe](http://msdn.microsoft.com/en-us/library/0k6kkbsd(v=vs.100).aspx) reference.
 
