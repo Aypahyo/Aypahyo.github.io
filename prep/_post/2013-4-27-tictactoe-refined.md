@@ -6,23 +6,23 @@ In successive expansions I will elaborate the design and install all those small
 That way it will be easy to explain in small steps why I want them to be there.
 
 The godobject was done so fast I did not even set up the whole project. 
-I started with the view and did miss the point where I should have started to switch to <a href="https://en.wikipedia.org/wiki/Test-driven_development" target="_blank">TDD</a>. 
-For the same reason I missed the point where I should have tried out <a href="http://en.wikipedia.org/wiki/FxCop" target="_blank">FXCop</a>.
+I started with the view and did miss the point where I should have started to switch to [TDD](https://en.wikipedia.org/wiki/Test-driven_development). 
+For the same reason I missed the point where I should have tried out [FXCop](http://en.wikipedia.org/wiki/FxCop).
 
-The godobject is now coded into the <a href="http://blogs.msdn.com/b/dphill/archive/2009/01/31/the-viewmodel-pattern.aspx" target="_blank">MainWindow-ViewModel</a>. 
+The godobject is now coded into the [MainWindow-ViewModel](http://blogs.msdn.com/b/dphill/archive/2009/01/31/the-viewmodel-pattern.aspx). 
 From a design point of view I coded the business logic into the layer that is meant to help isolate the logic. 
-It shows how easy it is to get sucked into the <a href="http://en.wikipedia.org/wiki/Windows_Presentation_Foundation" target="_blank">WPF</a> framework since it is so powerful.
+It shows how easy it is to get sucked into the [WPF](http://en.wikipedia.org/wiki/Windows_Presentation_Foundation) framework since it is so powerful.
 
 Everything was very straigth forward except for one problem I discovered. 
 During the project I recognized that I am unable to use data binding on a multidimentional array. 
 This actually created an ArgumentException. 
-I posted <a href="http://stackoverflow.com/questions/16119200/wpf-binding-to-multidimensional-array-in-the-xaml" target="_blank">the problem on stackoverflow</a> 
+I posted [the problem on stackoverflow](http://stackoverflow.com/questions/16119200/wpf-binding-to-multidimensional-array-in-the-xaml) 
 I may come back to this problem after I finished TicTacToe. 
 Jagged arrays work just as fine, so I don't want to divert from my goal too much. 
 Post your suggestions in the comments or answer on stackoverflow (easy points for the taking).
 
 You can play the 
-<a href="http://blog.aypahyo.net/tictactoe/TicTacToeGUIv000.exe" target="_blank">Human vs. Human version 000</a>
+[Human vs. Human version 000](http://blog.aypahyo.net/tictactoe/TicTacToeGUIv000.exe)
 , it looks like this:
 
 <img alt="" src="http://blog.aypahyo.net/tictactoe/TicTacToe_GUI_V000.png" />
@@ -33,15 +33,15 @@ This allows the X and O characters to scale up to whatever size the button is.
 In addition I use the buttons name to identity it after the click. 
 All buttons call the mapClick on click.
 
-I dont show the <a href="http://en.wikipedia.org/wiki/Extensible_Application_Markup_Language" target="_blank">XAML</a> here because I have bad experience with XML like content on this page. 
+I dont show the [XAML](http://en.wikipedia.org/wiki/Extensible_Application_Markup_Language) here because I have bad experience with XML like content on this page. 
 Post in the comments if you have a good solution for posting XML snipptes on wordpress.
 
-The <a href="http://msdn.microsoft.com/library/vstudio/aa970568#codebehind_and_the_xaml_language" target="_blank">codebehind file</a> of the main window is very slim. 
+The [codebehind file](http://msdn.microsoft.com/library/vstudio/aa970568#codebehind_and_the_xaml_language) of the main window is very slim. 
 This is intentional to get to out of that file as fast as possible. 
 For testing purposes you want this file small because you can not reasonably instantiate it. 
 In this case I chose to create a Viewmodel inside the constructor. 
 The alternative is to edit the APP and change the way the Mainwindow is created. 
-There is usually some temporal coupling to <a href="http://stackoverflow.com/questions/245825/what-does-initializecomponent-do-and-how-does-it-work-wpf" target="_blank">InitializeComponent()</a>. 
+There is usually some temporal coupling to [InitializeComponent()](http://stackoverflow.com/questions/245825/what-does-initializecomponent-do-and-how-does-it-work-wpf). 
 Here for instance you have to set the mapClick action before the call or a NullPointer exception occurs.
 <pre>    public partial class MainWindow : Window
     {
@@ -54,7 +54,7 @@ Here for instance you have to set the mapClick action before the call or a NullP
             InitializeComponent();
         }
     }</pre>
-The <a href="http://blogs.msdn.com/b/dphill/archive/2009/01/31/the-viewmodel-pattern.aspx" target="_blank">MainWindow-ViewModel</a> contains all the rest of the game. 
+The [MainWindow-ViewModel](http://blogs.msdn.com/b/dphill/archive/2009/01/31/the-viewmodel-pattern.aspx) contains all the rest of the game. 
  First I show it here and afterwards I talk about the things that are wrong with it.
 <pre>    class MainWindowViewModel : INotifyPropertyChanged
     {
@@ -136,7 +136,7 @@ The easy things to say about it is that this object has a multitude of responsib
 
 Systemstate is a generated string for the UI. 
 It looks like a seperate object or concept that actually wants to exist. As a matter of fact t
-he game can be represented by using a <a href="https://en.wikipedia.org/wiki/Finite-state_machine" target="_blank">finite-state machine</a>. 
+he game can be represented by using a [finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine). 
 At the point where the viewModel wants to get the state the call should look more like one of the following options:
 <pre>public String Systemstate { get { return game.getState.ToString(); } }
 public String Systemstate { get { return game.state.ToString(); } }
@@ -145,7 +145,7 @@ The map is an implementation detail that should be burried somewhere in the game
 It looks like the MainWindow-View wants a jagged array, but the adaption is what the viewModel is for - not the game itself. 
 The game should not concern itself with how to implement the map. 
 When we are done with the Map it will likely not be a jagged array but something else.
-It is likely that using a <a href="http://en.wikipedia.org/wiki/Language_Integrated_Query" target="_blank">LinQ</a> query will be easiest to implement the adaption.
+It is likely that using a [LinQ](http://en.wikipedia.org/wiki/Language_Integrated_Query) query will be easiest to implement the adaption.
 
 All the small things like turn or playertoken should not be in the MainWindow-ViewModel. 
 Maybe some of them should be part of a state, player, map or game.

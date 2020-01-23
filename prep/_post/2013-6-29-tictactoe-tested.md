@@ -6,7 +6,7 @@ I coded the TicTacToe the dirty way without test in my first iteration. There ar
 
 I write this because during introducing tests I noticed a quite sever programming bug. The rules that check if a win condition was triggered had an error. Manual testing did not reveal it because manual testing is not as extensive as automated testing. I was able to discover the error in a test that screened my TicTacToe for all clickable combinations - something I would never do by hand.
 
-All clickable combinations in Tic Tac Toe are 255168. This number can vary, depending on your definition of how unique a combination has to be. I pulled my test numbers from <a title="link to article" href="www.google.de/#q=255168+Tic+Tac+Toe" target="_blank">an article on the web</a>. If you generate all clickable combinations and use them to automatically play the game you should get:
+All clickable combinations in Tic Tac Toe are 255168. This number can vary, depending on your definition of how unique a combination has to be. I pulled my test numbers from [an article on the web](www.google.de/#q=255168+Tic+Tac+Toe). If you generate all clickable combinations and use them to automatically play the game you should get:
 <ul>
 	<li>0 games ending in zero, one, two, three and four moves.</li>
 	<li>1440 games ending with a winner in 5 moves.</li>
@@ -20,7 +20,7 @@ Using this data you can create a test that tests all combinations and reveals al
 
 Before you can actually use <em>NUnit</em> as a test framework to implement the tests, there are a couple of things you have to do first.
 <ol>
-	<li>Get <a title="nunit mainpage" href="www.nunit.org" target="_blank">NUnit</a></li>
+	<li>Get [NUnit](www.nunit.org)</li>
 	<li>Create a new project that will contain your tests</li>
 	<li>Link to
 <ul>
@@ -31,7 +31,7 @@ Before you can actually use <em>NUnit</em> as a test framework to implement the 
 </ul>
 </li>
 	<li>Switch your project target framework to "Framework 4" - required for Rhino Mocks</li>
-	<li>Edit the assembly of the project under test and tell it to allow your test project to view <a title="InternalsVisibleTo" href="http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx" target="_blank">internals</a></li>
+	<li>Edit the assembly of the project under test and tell it to allow your test project to view [internals](http://msdn.microsoft.com/en-us/library/system.runtime.compilerservices.internalsvisibletoattribute.aspx)</li>
 	<li>Create your main method to launch NUnit using the debugger.</li>
 </ol>
 I guess that a lot of the above steps are unclear to most, so I will elaborate a bit.
@@ -61,4 +61,4 @@ Create your main method. The windows forms project comes with an application sta
 }</pre>
 This calls the NUnit GUI runner with the appropriate location of your test assembly. This is written universal so you can actually use it for all your test projects. The reason why you want to do this is because you use the <em>Express</em> version of <em>Visual Studio</em>. This version does not allow you to attach the debugger to a running assembly. So what you have to do is to start the assembly using the debugger - that way you can actually debug your test should anything go wrong. The downside is that you will get notified if an exception is thrown - even if that was intentional.
 
-I do not include a playable link to the executeable. I think if you read it this far you may want to look at the sourcefiles instead. So here is the project instead. <a href="http://blog.aypahyo.net/tictactoe/TicTacToeV001.zip" target="_blank">Human vs. Human version 001</a>
+I do not include a playable link to the executeable. I think if you read it this far you may want to look at the sourcefiles instead. So here is the project instead. [Human vs. Human version 001](http://blog.aypahyo.net/tictactoe/TicTacToeV001.zip)

@@ -39,25 +39,25 @@ files:
 
 The output artifacs ended up in an S3 bucket
 
-If you just want to hang out you may have a chance to catch me on  <a href="https://www.twitch.tv/aypahyo" target="_blank">twitch</a> .
-Get in touch on <a href="https://twitter.com/Aypahyo" target="_blank">twitter</a>
+If you just want to hang out you may have a chance to catch me on  [twitch](https://www.twitch.tv/aypahyo) .
+Get in touch on [twitter](https://twitter.com/Aypahyo)
 
 Here are all the links I ended up inspecting for this:
 
-<a href="https://calculator.s3.amazonaws.com/index.html">S3 Caculator</a>
-<a href="https://www.youtube.com/watch?v=3HKbXz0RwSg">Amazon CI/CD Practices</a>
-<a href="https://www.youtube.com/watch?v=ry5GmEFa7P8">Expedia's Automated CI/CD</a>
-<a href="https://dzone.com/articles/how-to-deploy-a-jenkins-cluster-on-aws-as-part-of">How to Deploy a Jenkins Cluster on AWS in a Fully Automated CI/CD Platform</a>
-<a href="https://www.youtube.com/watch?v=O4uw7eIVrZs">Save up to 90% on CI/CD</a>
-<a href="https://www.youtube.com/watch?v=7hxe_o6493s">Accelerating DevOps Pipelines with AWS</a>
-<a href="https://ifritltd.com/2017/10/29/varrundocker-sock/">/var/run/docker.sock</a>
-<a href="https://www.youtube.com/watch?v=jJ4WgX2aOcs">Setting up a CICD Pipeline for Containers on AWS</a>
-<a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/codepipeline-user.pdf">CodePipeline User Guide</a>
-<a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html">CodePipeline Pipeline Structure Reference</a>
-<a href="https://medium.com/@vankhoa011/how-to-apply-ci-cd-by-using-github-codebuild-codepipeline-and-ecs-58192b8322a9">How to apply CI/CD by using GitHub, CodeBuild, CodePipeline and ECS</a>
-<a href="https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html">Amazon ECR Sample for CodeBuild</a>
-<a href="https://docs.aws.amazon.com/codebuild/latest/userguide/troubleshooting.html">Troubleshooting CodeBuild</a>
-<a href="https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html">Build Specification Reference for CodeBuild</a>
-<a href="https://stackoverflow.com/questions/56231957/aws-codebuild-error-while-build-project-yaml-file-error-message-runtime-vers">Runtime version selection is not supported by this build image</a>
-<a href="https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html">Change a Build Project's Settings in CodeBuild</a>
-<a href="https://stackoverflow.com/questions/52949413/how-to-run-docker-compose-on-aws-codebuild">How to run docker-compose on AWS CodeBuild?</a>
+[S3 Caculator](https://calculator.s3.amazonaws.com/index.html)
+[Amazon CI/CD Practices](https://www.youtube.com/watch?v=3HKbXz0RwSg)
+[Expedia's Automated CI/CD](https://www.youtube.com/watch?v=ry5GmEFa7P8)
+[How to Deploy a Jenkins Cluster on AWS in a Fully Automated CI/CD Platform](https://dzone.com/articles/how-to-deploy-a-jenkins-cluster-on-aws-as-part-of)
+[Save up to 90% on CI/CD](https://www.youtube.com/watch?v=O4uw7eIVrZs)
+[Accelerating DevOps Pipelines with AWS](https://www.youtube.com/watch?v=7hxe_o6493s)
+[/var/run/docker.sock](https://ifritltd.com/2017/10/29/varrundocker-sock/)
+[Setting up a CICD Pipeline for Containers on AWS](https://www.youtube.com/watch?v=jJ4WgX2aOcs)
+[CodePipeline User Guide](https://docs.aws.amazon.com/codepipeline/latest/userguide/codepipeline-user.pdf)
+[CodePipeline Pipeline Structure Reference](https://docs.aws.amazon.com/codepipeline/latest/userguide/reference-pipeline-structure.html)
+[How to apply CI/CD by using GitHub, CodeBuild, CodePipeline and ECS](https://medium.com/@vankhoa011/how-to-apply-ci-cd-by-using-github-codebuild-codepipeline-and-ecs-58192b8322a9)
+[Amazon ECR Sample for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-ecr.html)
+[Troubleshooting CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/troubleshooting.html)
+[Build Specification Reference for CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-spec-ref.html)
+[Runtime version selection is not supported by this build image](https://stackoverflow.com/questions/56231957/aws-codebuild-error-while-build-project-yaml-file-error-message-runtime-vers)
+[Change a Build Project's Settings in CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html)
+[How to run docker-compose on AWS CodeBuild?](https://stackoverflow.com/questions/52949413/how-to-run-docker-compose-on-aws-codebuild)

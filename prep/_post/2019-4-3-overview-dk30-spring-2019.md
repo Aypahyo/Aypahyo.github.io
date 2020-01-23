@@ -1,10 +1,10 @@
-I am taking part in #dk30-spring-2019 which you can find <a title="dk30 day9.tv" href="https://dk30.day9.tv/?t=1554317248024" target="_blank">here</a>.
+I am taking part in #dk30-spring-2019 which you can find [here](https://dk30.day9.tv/?t=1554317248024).
 
 The Project is structured into 4 Weeks. MY output should be thirteen blog posts and an interactable cloud thing.
 In order to get a clean front page I am creating this post so I can collect my links while I move the project forward.
 
 Week 1:
-I am a proud owner of an <a title="Amazon Web Services" href="https://aws.amazon.com" target="_blank">AWS </a>evaluation account which will last for a year.
+I am a proud owner of an [AWS ](https://aws.amazon.com)evaluation account which will last for a year.
 Thinking about what may come in handy in week 4 and what I want to accomplish I think what I need will contain:
 <ul>
 	<li>Hosting a remote machine for actual development in the cloud.</li>
@@ -24,7 +24,7 @@ Thinking about what may come in handy in week 4 and what I want to accomplish I 
 Looking at that list makes me feel a bit squeamy since I know those topics a bit and I am not sure If I have enough pare time to pull this off in a month.
 Never give up, never surrender :)
 
-Find me on <a href="https://twitter.com/Aypahyo" target="_blank">twitter</a> or <a href="https://www.twitch.tv/aypahyo" target="_blank">twitch</a> for comments.
+Find me on [twitch](https://www.twitch.tv/aypahyo) for comments.
 
 <span style="color: #c0c0c0;">WEEK 1 GOAL</span>
 <span style="color: #c0c0c0;"> Make a list of thirteen Tutorials that represent individual technologies. Complete three Tutorials. Publish three summaries</span>

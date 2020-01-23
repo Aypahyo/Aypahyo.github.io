@@ -1,7 +1,12 @@
-<a href="http://cppcheck.sourceforge.net/" title="CppCheck project page" target="_blank">CppCheck</a> 
+---
+layout: post
+title: MSBuild and Cppcheck
+---
+
+[CppCheck](http://cppcheck.sourceforge.net/) 
 is an easy to use static code analysis tool. 
 If you want to use it right away, there is a stand alone GUI version in 
-<a href="http://cppcheck.sourceforge.net/" title="CppCheck project page" target="_blank">the package</a>
+[the package](http://cppcheck.sourceforge.net/)
 . 
 Static code analysis is like having another programmer look over your code and comment on what you have written. 
 I think it is a good idea to run a lot of non conflicting static tools simultaneousely. 
