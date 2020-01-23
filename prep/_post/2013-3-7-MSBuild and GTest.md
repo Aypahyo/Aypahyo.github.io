@@ -31,12 +31,14 @@ You can not copy paste the following files easily, some manual work is required.
 Here is the content of the files:
 
 `something_test.cpp`
+
 ```cpp
 #include "../Utility/GTest/gtest.h"
 TEST(casename, testname){ EXPECT_EQ(1,1); }
 ```
 
 `something_main.cpp`
+
 ```cpp
 void main(void){}
 ```
@@ -128,10 +130,11 @@ Something along these lines:
 
 ```cpp
 #ifdef MSBUILD_RUN_WITH_STOP_AT_END
-std::cout&lt;&lt;"....\n";
+std::cout<<"....\n";
 _getch();
 #endif
 ```
+
 You should be able to copy these results and have your own googletest build party.
 When you do, please pay attention to the colors of googletest when executing the test build.
 The regular wondows console is not an ansi console

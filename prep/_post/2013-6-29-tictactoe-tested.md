@@ -15,10 +15,10 @@ All clickable combinations in Tic Tac Toe are 255168. This number can vary, dep
 
 - 0 games ending in zero, one, two, three and four moves.
 - 1440 games ending with a winner in 5 moves.
-- 6 moves -&gt; 5328 games
-- 7 moves -&gt; 47952 games
-- 8 moves -&gt; 72576 games
-- 9 moves -&gt; 81792 games and
+- 6 moves -> 5328 games
+- 7 moves -> 47952 games
+- 8 moves -> 72576 games
+- 9 moves -> 81792 games and
 - a draw result for 4868 games.
 
 Using this data you can create a test that tests all combinations and reveals all coding errors in the win condition code.
@@ -49,7 +49,9 @@ I guess that a lot of the above steps are unclear to most, so I will elaborate a
 *Editing the assembly* is something I usually do, but did actually skip for TicTacToe. Without this your test framework can only see the public portions of the assembly. If you add *[assembly: InternalsVisibleTo("")]* to it this changes and the test assembly can also see the internals ot the assembly under test. That in turn allows you to control what portions are visible in the production code, since you don't have to make everything public if you want to run a test on it.
 
 Create your main method. The windows forms project comes with an application start. You wnat to edit that so it looks like this:
-<pre>namespace TicTacToeTest
+
+```c#
+namespace TicTacToeTest
 {
     static class Program
     {
@@ -60,7 +62,9 @@ Create your main method. The windows forms project comes with an application sta
             NUnit.Gui.AppEntry.Main(new string[] { fullPath });
         }
     }
-}</pre>
+}
+```
+
 This calls the NUnit GUI runner with the appropriate location of your test assembly. This is written universal so you can actually use it for all your test projects. The reason why you want to do this is because you use the *Express* version of *Visual Studio*. This version does not allow you to attach the debugger to a running assembly. So what you have to do is to start the assembly using the debugger - that way you can actually debug your test should anything go wrong. The downside is that you will get notified if an exception is thrown - even if that was intentional.
 
 I do not include a playable link to the executeable. I think if you read it this far you may want to look at the sourcefiles instead. So here is the project instead. [Human vs. Human version 001](http://blog.aypahyo.net/tictactoe/TicTacToeV001.zip)

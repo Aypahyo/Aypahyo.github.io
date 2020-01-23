@@ -30,7 +30,7 @@ You can play the
 [Human vs. Human version 000](http://blog.aypahyo.net/tictactoe/TicTacToeGUIv000.exe)
 , it looks like this:
 
-<img alt="" src="http://blog.aypahyo.net/tictactoe/TicTacToe_GUI_V000.png" />
+![gui](http://blog.aypahyo.net/tictactoe/TicTacToe_GUI_V000.png)
 
 The view itself consists of 9 buttons and a status text.
 Each button has a viewbox with a TextBlock inside instead of its regular content.
@@ -53,7 +53,7 @@ Here for instance you have to set the mapClick action before the call or a NullP
 public partial class MainWindow : Window
     {
         MainWindowViewModel vm;
-        private Action&lt;object, RoutedEventArgs&gt; mapClick;
+        private Action<object, RoutedEventArgs> mapClick;
         public MainWindow()
         {
             this.DataContext = vm = new MainWindowViewModel();
@@ -73,7 +73,7 @@ class MainWindowViewModel : INotifyPropertyChanged
         public Char[][] MAP { get { return _map_jagged; } }
         public String Systemstate { get {
                 if (' ' != _winner) return "Player " + _winner + " has won the game.";
-                if (turn &gt; 9 ) return "The game ended in a tie.";
+                if (turn > 9 ) return "The game ended in a tie.";
                 return "Player " + _icons[(turn)% 2] + " has to move.";
             } }
 
@@ -134,7 +134,7 @@ class MainWindowViewModel : INotifyPropertyChanged
             uint n;
             _map_jagged[col][row] = mark;
             ++turn;
-            for (n = 0; n &lt; 3; ++n)
+            for (n = 0; n < 3; ++n)
             {
                 if (_map_jagged[n][0] != ' ' &amp;&amp; _map_jagged[n][0] == _map_jagged[n][1] &amp;&amp; _map_jagged[n][0] == _map_jagged[n][2]) _winner = _map_jagged[n][0];
                 if (_map_jagged[0][n] != ' ' &amp;&amp; _map_jagged[0][n] == _map_jagged[1][n] &amp;&amp; _map_jagged[0][n] == _map_jagged[2][n]) _winner = _map_jagged[n][0];
@@ -151,9 +151,13 @@ Systemstate is a generated string for the UI.
 It looks like a seperate object or concept that actually wants to exist. As a matter of fact t
 he game can be represented by using a [finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine).
 At the point where the viewModel wants to get the state the call should look more like one of the following options:
-<pre>public String Systemstate { get { return game.getState.ToString(); } }
+
+```c#
+public String Systemstate { get { return game.getState.ToString(); } }
 public String Systemstate { get { return game.state.ToString(); } }
-public String Systemstate { get { return game.stateString; } }</pre>
+public String Systemstate { get { return game.stateString; } }
+```
+
 The map is an implementation detail that should be burried somewhere in the game object.
 It looks like the MainWindow-View wants a jagged array, but the adaption is what the viewModel is for - not the game itself.
 The game should not concern itself with how to implement the map.

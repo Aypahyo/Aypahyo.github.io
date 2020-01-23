@@ -25,7 +25,7 @@ I needed:
 
 Checking both these options made my pipeline run and complete successfully.
 
-```language
+```yaml
 version: 0.2
 phases:
 install:
@@ -33,13 +33,13 @@ runtime-versions:
 docker: 18
 pre_build:
 commands:
-- docker pull gcc
+    - docker pull gcc
 build:
 commands:
-- docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc make
+    - docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp gcc make
 artifacts:
 files:
-- ./main
+    - ./main
 ```
 
 The output artifacs ended up in an S3 bucket

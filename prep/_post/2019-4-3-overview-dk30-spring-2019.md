@@ -9,7 +9,7 @@ The Project is structured into 4 Weeks. MY output should be thirteen blog posts 
 In order to get a clean front page I am creating this post so I can collect my links while I move the project forward.
 
 Week 1:
-I am a proud owner of an [AWS ](https://aws.amazon.com)evaluation account which will last for a year.
+I am a proud owner of an [AWS](https://aws.amazon.com)evaluation account which will last for a year.
 Thinking about what may come in handy in week 4 and what I want to accomplish I think what I need will contain:
 
 - Hosting a remote machine for actual development in the cloud.
