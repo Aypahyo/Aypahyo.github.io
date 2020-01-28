@@ -27,4 +27,4 @@ The general idea is to copy most stuff from my old project while also working in
 
 I have a rough Idea how I want the packages to look like so here is how I will be working on the project:
 
-![packages](images/2019-2-2/packages.png)
+![packages](images/2020-2-2/packages.png)
