@@ -19,16 +19,17 @@ avatar: https://avatars0.githubusercontent.com/u/46710092
 footer-links:
   dribbble:
   email:
-  facebook:
+  facebook: johannes.hirschmugl.1
   flickr:
-  github: barryclark/jekyll-now
+  github: Aypahyo
   instagram:
   linkedin:
   pinterest:
-  rss: # just type anything here for a working RSS icon
+  rss: YesPlease
   twitter: jekyllrb
-  stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
-  youtube: # channel/<your_long_string> or user/<user-name>
+  stackoverflow: users/536874/johannes
+  youtube: channel/UCkA6MYHA0lJLKDrZkOjGTqg
+  youtube: user/Maralein94
   googleplus: # anything in your profile username that comes after plus.google.com/
 
 
@@ -37,11 +38,11 @@ footer-links:
 disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+google_analytics: UA-158740989-1
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url:
+url: https://aypahyo.github.io/
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
